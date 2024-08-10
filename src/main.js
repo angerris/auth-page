@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Login from "./login";
 import { getToken, removeToken, getUser } from "./api/api";
+import AppHeader from "./components/Header";
+import "./styles/style.css";
 
 function Main() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -34,16 +36,24 @@ function Main() {
     setUsername("");
   };
 
-  if (loggedIn) {
-    return (
-      <div className="main">
-        <h1>Welcome, {username}!</h1>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
-  }
-
-  return <Login onLogin={handleLogin} />;
+  return (
+    <div className="main-wrapper">
+      <AppHeader
+        loggedIn={loggedIn}
+        onLogin={handleLogin}
+        onLogout={handleLogout}
+      />
+      {loggedIn ? (
+        <div className="main">
+          <h1 style={{ textAlign: "center", marginTop: "35dvh" }}>
+            Welcome, {username}!
+          </h1>
+        </div>
+      ) : (
+        <Login onLogin={handleLogin} />
+      )}
+    </div>
+  );
 }
 
 export default Main;

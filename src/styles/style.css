@@ -3,3 +3,38 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #f0f2f5;
+  font-family: "Roboto", sans-serif;
+}
+.main {
+  padding: 100px 50px;
+}
+.desktop-menu {
+  display: flex;
+}
+.mobile-menu {
+  display: none;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  box-shadow: 0 0 0px 1000px white inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+.ant-input:focus,
+.ant-input-password input:focus {
+  background-color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
